@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div id="brandname">
+        </div>
+        <h2>Результаты сервисного обслуживания</h2>
+
+    </div>
+</header>
+<div class="results">
+    {% if work == 1 %}
+    <h2 style="color:red;">Машина имела недостатки, они были устранены.</h2>
+	<p>Выполненные работы по автомобилю:</p>
+    {% elif work == 0 %}
+    <h2 style="color:blue;">Машине не имела недостатков и обслуживание не проводилось.</h2>
+    {% endif %}
+    {% for predict in prediction %}
+    {% if predict%}
+    {{predict}}<br>
+    {% endif %}
+    {% endfor %}
+</div>
+
+</body>
+</html> 
